@@ -1,0 +1,87 @@
+<!DOCTYPE  html>
+<html>
+	<head>
+  	<style>
+      .container{
+        margin-top: 30px;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+      }
+      .available-players{
+			  border-color: lightgreen;
+			  border-width: 5px;
+			  border-style: solid;
+			  width : 300px;
+			  height: 500px;
+			  margin-top: 20px;
+			  vertical-align: top;
+			  display: inline-block;
+			  margin: 30px;
+				box-shadow: 3px 3px 10px 2px rgba(0,0,0,.8);
+			 
+            }
+			.available-players:hover{
+				box-shadow: 8px 8px 10px 2px rgba(0,0,0,.8);
+				
+			}
+      .preview{
+        width: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+      }
+      .description{
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+      }
+      .header{
+        text-align: center;
+        font-size: 40px;
+        background-color: lightgreen;
+        height: 70px;
+				border-color: green;
+				border-width: 5px;
+				border-style: solid;
+
+      }
+			.small-description{
+				text-align: center;
+				font-weight: bold;
+			}
+    </style>
+	</head>
+	<body>
+    <div class="header">
+        FIFA 22 Market Bargains
+      </div>
+    <div class = "container">  
+      {% for player in base %}
+      <div class = "available-players", onclick=" window.open('{{player[2]}}', '_blank'); return false;">
+        <p class="description">
+					{{player[1]}}
+        </p>
+        <img class="preview" src={{player[0]}}>
+				<p class="small-description">
+					Estimated Earn Percentage: {{player[3]}}
+				</p>
+				<p class="small-description">
+					Lowest Buy It Now Price: {{player[4]}}
+				</p>
+				<p class="small-description">
+					Average Buy It Now Price: {{player[5]}}
+				</p>
+				<p class="small-description">
+					Recent Buy Prices: <br>{{player[6]}}
+				</p>
+      </div>
+      {% endfor %}
+      
+    </div>
+    
+	</body>
+</html>
+				
